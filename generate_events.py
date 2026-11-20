@@ -67,6 +67,9 @@ events.append(make_event(t, "admin", "198.51.100.21", "success"))
 
 
 
+# PLANTED: unusual timing - successful login outside working hours (review only)
+t = datetime(2026, 11, 2, 21, 0, 30)
+events.append(make_event(t, "profile", "198.51.100.18", "success"))
 
 
 
