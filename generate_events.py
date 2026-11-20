@@ -47,6 +47,26 @@ for k in range(2):
 t = mistake_start + timedelta(minutes=2)
 events.append(make_event(t, "dave", "192.0.2.12", "success"))
 
+
+# PLANTED: password spraying - one IP fails against 10 accounts in about 7 minutes
+spray_targets = ["alice", "bob", "carol", "dave", "erin",
+                 "admin", "test", "main", "profile", "account"]
+spray_start = datetime(2026, 11, 2, 13, 0, 15)
+for k, name in enumerate(spray_targets):
+    t = spray_start + timedelta(seconds=40 * k)
+    events.append(make_event(t, name, "198.51.100.30", "failure"))
+
+
+
+
+
+
+
+
+
+
+
+
 # Put all events in time order, then number them
 events.sort(key=get_time)
 for n, e in enumerate(events, start=1):
