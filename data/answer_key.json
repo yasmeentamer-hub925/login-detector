@@ -1,0 +1,32 @@
+[
+  {
+    "scenario": "brute_force",
+    "username": "carol",
+    "source_ip": "198.51.100.23",
+    "expected": "repeated-failure finding"
+  },
+  {
+    "scenario": "ordinary_mistake",
+    "username": "dave",
+    "source_ip": "192.0.2.12",
+    "expected": "no finding"
+  },
+  {
+    "scenario": "password_spraying",
+    "username": "multiple",
+    "source_ip": "198.51.100.30",
+    "expected": "multiple-account finding"
+  },
+  {
+    "scenario": "success_after_failures",
+    "username": "admin",
+    "source_ip": "198.51.100.21",
+    "expected": "correlated finding"
+  },
+  {
+    "scenario": "outside_working_hours",
+    "username": "profile",
+    "source_ip": "198.51.100.18",
+    "expected": "review finding"
+  }
+]

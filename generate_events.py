@@ -74,8 +74,6 @@ events.append(make_event(t, "profile", "198.51.100.18", "success"))
 
 
 
-
-
 # Put all events in time order, then number them
 events.sort(key=get_time)
 for n, e in enumerate(events, start=1):
@@ -86,3 +84,27 @@ with open("data/auth_events.jsonl", "w") as f:
         f.write(json.dumps(e) + "\n")
 
 print("Wrote", len(events), "events to data/auth_events.jsonl")
+
+
+
+answer_key = [
+
+    {"scenario": "brute_force", "username": "carol", "source_ip": "198.51.100.23",
+     "expected": "repeated-failure finding"},
+    {"scenario": "ordinary_mistake", "username": "dave", "source_ip": "192.0.2.12",
+     "expected": "no finding"},
+     {"scenario": "password_spraying", "username": "multiple", "source_ip":"198.51.100.30",
+     "expected": "multiple-account finding"},
+     {"scenario": "success_after_failures", "username": "admin", "source_ip": "198.51.100.21",
+     "expected": "correlated finding"},
+     {"scenario": "outside_working_hours", "username": "profile", "source_ip": "198.51.100.18", 
+      "expected": "review finding"},
+]
+
+with open("data/answer_key.json", "w") as f:
+    json.dump(answer_key, f, indent=2)
+
+print("Wrote answer key with", len(answer_key), "scenarios")
+
+
+
