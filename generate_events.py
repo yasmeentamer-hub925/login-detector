@@ -57,7 +57,13 @@ for k, name in enumerate(spray_targets):
     events.append(make_event(t, name, "198.51.100.30", "failure"))
 
 
-
+# PLANTED: success after repeated failures - attacker guesses admin's password
+breach_start = datetime(2026, 11, 2, 12, 0, 30)
+for k in range(6):
+    t = breach_start + timedelta(minutes=k)
+    events.append(make_event(t, "admin", "198.51.100.21", "failure"))
+t = breach_start + timedelta(minutes=6)
+events.append(make_event(t, "admin", "198.51.100.21", "success"))
 
 
 
